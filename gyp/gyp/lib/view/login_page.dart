@@ -6,43 +6,49 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Container(
-          margin: const EdgeInsets.all(24),
-          child: Column(
-            
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              _header(context),
-              _inputField(context),
-              _forgotPassword(context),
-              _signup(context),
-              
-            ],
+    return Scaffold(
+      body: Stack( // Use Stack for layering
+        children: [
+          // Background image
+          Image.asset(
+            'assets/gyp-background.jpg',
+            fit: BoxFit.cover, // Adjust fit as needed
+            width: double.infinity,
+            height: double.infinity,
           ),
-        ),
+          // Content positioned on top
+          Positioned(
+           // Adjust left offset as needed (optional)
+            child: Container( // Container for padding (optional)
+              margin: const EdgeInsets.all(24),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  _header(context),
+                  _inputField(context),
+                  _forgotPassword(context),
+                  _signup(context),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
 
-  _header(context) {
+ _header(context) {
     return const Column(
       children: [
-        
-        
-        Text(
+       
+         Text(
           "G.Y.P",
           style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
         ),
-        Text("Gym in Your Pocket",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-        Text("Seu treino acessível a qualquer momento",
-          style: TextStyle(fontSize: 14, ),
-        ),
-        
+         Text("Gym in Your Pocket",
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+         Text("Seu treino acessível a qualquer momento",
+            style: TextStyle(fontSize: 14)),
       ],
     );
   }
@@ -69,7 +75,7 @@ class LoginPage extends StatelessWidget {
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(18),
                 borderSide: BorderSide.none),
-            fillColor: Colors.cyan.withOpacity(0.1),
+            fillColor: const Color.fromARGB(255, 253, 253, 253).withOpacity(0.1),
             filled: true,
             prefixIcon: const Icon(Icons.password),
           ),
