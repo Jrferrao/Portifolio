@@ -43,12 +43,13 @@ class LoginPage extends StatelessWidget {
        
          Text(
           "G.Y.P",
-          style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold , color: Colors.white),
         ),
          Text("Gym in Your Pocket",
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold , color: Colors.white),
+        ),
          Text("Seu treino acessível a qualquer momento",
-            style: TextStyle(fontSize: 14)),
+            style: TextStyle(fontSize: 14 , color: Colors.cyan)),
       ],
     );
   }
@@ -64,7 +65,7 @@ class LoginPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(18),
                   borderSide: BorderSide.none
               ),
-              fillColor: Colors.cyan.withOpacity(0.1),
+              fillColor: const Color.fromARGB(255, 253, 253, 253).withOpacity(0.5),
               filled: true,
               prefixIcon: const Icon(Icons.person)),
         ),
@@ -75,7 +76,7 @@ class LoginPage extends StatelessWidget {
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(18),
                 borderSide: BorderSide.none),
-            fillColor: const Color.fromARGB(255, 253, 253, 253).withOpacity(0.1),
+            fillColor: const Color.fromARGB(255, 253, 253, 253).withOpacity(0.5),
             filled: true,
             prefixIcon: const Icon(Icons.password),
           ),
@@ -88,11 +89,13 @@ class LoginPage extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             shape: const StadiumBorder(),
             padding: const EdgeInsets.symmetric(vertical: 16),
-            backgroundColor: Colors.cyan,
+            backgroundColor: const Color.fromRGBO(0, 188, 212, 1).withOpacity(0.7),
+            foregroundColor: Colors.white60,
           ),
           child: const Text(
             "Login",
             style: TextStyle(fontSize: 20),
+            
           ),
         )
       ],
@@ -112,7 +115,7 @@ class LoginPage extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Não possui uma conta?"),
+        const Text("Não possui uma conta?", style: TextStyle(color: Colors.white),),
         TextButton(
             onPressed: () {
             },
