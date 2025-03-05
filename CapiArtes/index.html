@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capi Artes - Arte Infantil</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+    <!-- Bolhas decorativas -->
+    <div class="bubble" style="top: 10%; left: 5%; width: 100px; height: 100px;"></div>
+    <div class="bubble" style="top: 30%; right: 10%; width: 150px; height: 150px;"></div>
+    <div class="bubble" style="bottom: 20%; left: 15%; width: 120px; height: 120px;"></div>
+    <div class="bubble" style="bottom: 40%; right: 20%; width: 80px; height: 80px;"></div>
+    
+    <!-- Cabeçalho com Logo -->
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="/img/capiartes.jpg">
+            </div>
+            
+        </div>
+    </header>
+    
+    <!-- Seção Sobre a Artista -->
+    <section class="about-section">
+        <div class="container">
+            <h2>Sobre a Artista</h2>
+            <div class="about-content">
+                <div class="about-text dotted-border">
+                    <p>Olá! Meu nome é Valentina, sou a mente criadora por tras da CapiArtes e tenho 8 anos. Desde pequena, sempre adorei criar coisas bonitas com minhas mãos!</p>
+                    <p>Comecei desenhando e recriando imagens para presentear a família e aos poucos fui fazendo criações cada vez mais complexas e cheias de cores! Sempre adorei ver as formas criando vida!</p>
+                    <p>Quando aprendi a fazer colares e pulseiras com miçangas, não parei mais! Cada peça que faço tem um pedacinho do meu coração.</p>
+                    <p>Criei a Capi Artes para compartilhar minhas criações com vocês e espalhar alegria através da arte. Espero que gostem do meu trabalho tanto quanto eu gosto de fazê-lo!</p>
+                    <p>Meu sonho é que minhas artes deixem o mundo mais colorido e feliz!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Galeria de Imagens - Carrossel -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2>Minhas Criações</h2>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <!-- Carrossel com placeholder de imagens -->
+                    <div class="carousel-item">
+                        <img src="/api/placeholder/400/320" alt="Colares coloridos feitos à mão" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/api/placeholder/400/320" alt="Pulseiras de miçangas" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/api/placeholder/400/320" alt="Desenho em papel colorido" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/api/placeholder/400/320" alt="Pintura em tela" />
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/api/placeholder/400/320" alt="Trabalho manual artesanal" />
+                    </div>
+                </div>
+                <button class="carousel-control prev">&#10094;</button>
+                <button class="carousel-control next">&#10095;</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Seção de Contato -->
+    <section class="contact-section">
+        <div class="container">
+            <h2>Faça seu Pedido Especial!</h2>
+            <p>Cada trabalho é feito com muito amor e carinho especialmente para você!</p>
+            <p>Quer um colar, pulseira ou desenho exclusivo? Entre em contato comigo!</p>
+            <a href="https://wa.me/5561999376412" class="whatsapp-button">
+                <span class="whatsapp-icon">📱</span>Fale comigo no WhatsApp
+            </a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Capi Artes - Criações feitas com carinho e imaginação!</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Script para o carrossel de imagens
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselInner = document.querySelector('.carousel-inner');
+            const prevButton = document.querySelector('.carousel-control.prev');
+            const nextButton = document.querySelector('.carousel-control.next');
+            const items = document.querySelectorAll('.carousel-item');
+            
+            let currentIndex = 0;
+            
+            function updateCarousel() {
+                const translateValue = -currentIndex * 100 + '%';
+                carouselInner.style.transform = 'translateX(' + translateValue + ')';
+            }
+            
+            prevButton.addEventListener('click', function() {
+                currentIndex = (currentIndex - 1 + items.length) % items.length;
+                updateCarousel();
+            });
+            
+            nextButton.addEventListener('click', function() {
+                currentIndex = (currentIndex + 1) % items.length;
+                updateCarousel();
+            });
+            
+            // Auto-play (opcional)
+            setInterval(function() {
+                currentIndex = (currentIndex + 1) % items.length;
+                updateCarousel();
+            }, 5000);
+            
+            // Adicionar efeitos de flutuação às bolhas decorativas
+            const bubbles = document.querySelectorAll('.bubble');
+            bubbles.forEach((bubble, index) => {
+                const delay = index * 0.5;
+                bubble.style.animation = `float 5s ease-in-out ${delay}s infinite`;
+            });
+            
+            // Adicionar estilos de animação
+            const styleSheet = document.createElement('style');
+            styleSheet.textContent = `
+                @keyframes float {
+                    0% { transform: translateY(0px); }
+                    50% { transform: translateY(-20px); }
+                    100% { transform: translateY(0px); }
+                }
+            `;
+            document.head.appendChild(styleSheet);
+        });
+    </script>
+</body>
+</html>
