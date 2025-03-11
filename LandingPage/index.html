@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LumenCraft - Velas Artesanais de Luxo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>LumenCraft</h1>
+        <p>Ilumine sua vida com fragrâncias que contam histórias</p>
+        <a href="#produto" class="cta">Descubra Nossas Velas</a>
+    </header>
+
+    <section id="historia">
+        <h2>Nossa História</h2>
+        <p>Na LumenCraft, acreditamos que uma vela é mais que luz — é memória, arte e conexão. Fundada em 2025, nossa missão é criar velas artesanais com cera de soja natural, unindo sustentabilidade e sofisticação em cada chama.</p>
+    </section>
+
+    <section id="produto">
+        <h2>Nossas Velas</h2>
+        <div class="produto-container">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_940988-MLB44256228977_122020-O.webp" alt="Vela Sândalo LumenCraft">
+            <div class="produto-texto">
+                <h3>Sândalo & Jasmim</h3>
+                <p>Feitas à mão com cera de coco 100% natural, nossas velas em potes de vidro fosco reutilizáveis oferecem até 40 horas de queima limpa. Inspirada nas florestas orientais, essa fragrância traz calor e serenidade.</p>
+            </div>
+        </div>
+        <div class="galeria">
+            <img src="https://cdn.awsli.com.br/400x400/2693/2693012/produto/259432232/5-1k6uvf6j6s.png" alt="Vela Lavanda">
+            <img src="https://cdn.awsli.com.br/600x1000/2693/2693012/produto/259431303/3-mjrsquy2l1.png" alt="Vela Cítrico">
+            <img src="https://brownliving.in/cdn/shop/products/pixie-dust-scented-soy-candle-bergamot-rose-and-sandalwood-verified-sustainable-products-on-brown-living-475916.jpg?v=1690308648&width=600" alt="Vela Baunilha">
+        </div>
+    </section>
+
+    <section id="depoimentos">
+        <h2>O Que Dizem Nossos Clientes</h2>
+        <div class="depoimentos-container">
+            <div class="depoimento">
+                <p>"A vela de Sândalo transformou minha casa em um refúgio de paz. Qualidade impecável!"</p>
+                <span>- Mariana Lopes</span>
+            </div>
+            <div class="depoimento">
+                <p>"Design elegante e fragrância duradoura. Melhor presente que já dei!"</p>
+                <span>- Pedro Almeida</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipe">
+        <h2>Nosso Time</h2>
+        <div class="equipe-container">
+            <div class="membro">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ7r3ISQeUcB_alQxHJjyi7VNLGkz2lK1k9Q&s" alt="Ana Silva">
+                <h3>Ana Silva</h3>
+                <p>Fundadora e Artesã</p>
+            </div>
+            <div class="membro">
+                <img src="https://img.cdndsgni.com/preview/12161359.jpg" alt="Lucas Mendes">
+                <h3>Lucas Mendes</h3>
+                <p>Designer de Produto</p>
+            </div>
+            <div class="membro">
+                <img src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2021/06/15/1790037284-10-dicas-para-saber-se-voce-esta-com-a-pessoa-certa-17686.jpg" alt="Clara Souza">
+                <h3>Clara Souza</h3>
+                <p>Especialista em Marketing</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="inscricao">
+        <h2>Junte-se à Nossa História</h2>
+        <p>Inscreva-se para receber novidades e ofertas exclusivas!</p>
+        <form>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" required>
+
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" name="estado" required>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 LumenCraft. Todos os direitos reservados.</p>
+    </footer>
+
+    <a href="#" class="top-btn">↑ Voltar ao Topo</a>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

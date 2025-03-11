@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas Vue.js</title>
+    <!-- Importando o Vue.js via CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #42b983;
+            text-align: center;
+        }
+        .input-container {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+        }
+        button {
+            background-color: #42b983;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 0 4px 4px 0;
+        }
+        button.delete {
+            background-color: #e74c3c;
+            border-radius: 4px;
+            margin-left: 10px;
+            padding: 4px 8px;
+            font-size: 14px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .tarefa-item {
+            flex: 1;
+            margin-left: 10px;
+        }
+        .concluida {
+            text-decoration: line-through;
+            color: gray;
+        }
+        .status {
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Minha Lista de Tarefas</h1>
+        
+        <div class="input-container">
+            <input 
+                v-model="novaTarefa" 
+                @keyup.enter="adicionarTarefa" 
+                placeholder="Digite uma nova tarefa"
+                type="text"
+            >
+            <button @click="adicionarTarefa">Adicionar</button>
+        </div>
+        
+        <ul>
+            <li v-for="(tarefa, index) in tarefas" :key="index">
+                <input type="checkbox" v-model="tarefa.completa">
+                <span class="tarefa-item" :class="{ 'concluida': tarefa.completa }">
+                    {{ tarefa.texto }}
+                </span>
+                <button class="delete" @click="removerTarefa(index)">Excluir</button>
+            </li>
+        </ul>
+        
+        <p class="status">{{ tarefasIncompletas }} tarefas pendentes</p>
+    </div>
+
+    <script>
+        const { createApp } = Vue
+        
+        createApp({
+            data() {
+                return {
+                    novaTarefa: '',
+                    tarefas: [
+                        { texto: 'Aprender Vue.js', completa: false },
+                        { texto: 'Criar uma aplicação', completa: false },
+                        { texto: 'Compartilhar com amigos', completa: false }
+                    ]
+                }
+            },
+            computed: {
+                tarefasIncompletas() {
+                    return this.tarefas.filter(t => !t.completa).length
+                }
+            },
+            methods: {
+                adicionarTarefa() {
+                    if (this.novaTarefa.trim()) {
+                        this.tarefas.push({ 
+                            texto: this.novaTarefa, 
+                            completa: false 
+                        })
+                        this.novaTarefa = ''
+                    }
+                },
+                removerTarefa(index) {
+                    this.tarefas.splice(index, 1)
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
