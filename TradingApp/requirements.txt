@@ -1,0 +1,14 @@
+# Criar ambiente virtual Python
+python -m venv venv
+
+# Ativar ambiente virtual
+# No Windows:
+venv\Scripts\activate
+# No Linux/Mac:
+source venv/bin/activate
+
+# Instalar as dependências necessárias
+pip install ccxt pandas numpy scikit-learn talib-binary python-binance matplotlib tensorflow
+
+# Verificar se todas as dependências foram instaladas corretamente
+pip list
